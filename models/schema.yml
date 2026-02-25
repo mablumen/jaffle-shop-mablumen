@@ -80,3 +80,28 @@ models:
         description: Amount of the order (AUD) paid for by gift card
         tests:
           - not_null
+
+  - name: payment_summary
+    description: Summary of payments aggregated by payment method
+
+    columns:
+      - name: payment_method
+        description: The method of payment (e.g. credit_card, coupon, bank_transfer, gift_card)
+        tests:
+          - unique
+          - not_null
+
+      - name: number_of_payments
+        description: Count of payments made using this payment method
+        tests:
+          - not_null
+
+      - name: total_amount
+        description: Total amount (AUD) of payments made using this payment method
+        tests:
+          - not_null
+
+      - name: average_amount
+        description: Average amount (AUD) per payment for this payment method
+        tests:
+          - not_null
